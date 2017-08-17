@@ -1,3 +1,148 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a, button{
+	cursor:pointer !important;
+}
+
+ul{
+	margin:0;
+	padding:0;
+}
+
+.App{
+	overflow-x: hidden;
+}
+
+.btn{
+	padding: 6px 20px;
+    border-radius: 50rem;
+}
+
+.container, .container-fluid{
+	margin-top:20px;
+}
+
+.container-fluid.albums{
+	padding:0 !important;
+}
+
+.albums ul li{
+	display: inline-block;
+	vertical-align:top;
+	width:33%;
+}
+
+
+.albums .media{
+	padding:10px;
+	border-bottom:1px solid #ddd;
+}
+
+.albums .media h4{
+	font-family: 'Cabin', sans-serif;
+	font-weight: 700;
+    font-size: 30px;
+}
+
+.albums .media .media-object{
+	border: 1px solid #eee;
+}
+
 .App{
   padding-top:60px;
+}
+
+ul.media-videos li.video{
+	width: 25%;
+}
+
+.media-videos a{
+	display:block;
+}
+
+.media-videos a img{
+	max-width:100%;
+	margin-bottom:10px;
+}
+
+.view-video{
+	width:100%;
+	height:100%;
+	position:fixed;
+	z-index:9999;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background:rgba(0,0,0,0.7);
+}
+
+.view-video .exit-bkgd{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:2;
+}
+
+.view-video .video{
+	position:relative;
+	width:640px;
+	height:360px;
+	top:50%;
+	left:50%;
+	-ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index:99;
+}
+
+.view-video .video .youtube-iframe{
+	position:absolute;
+	width:640px;
+	height:360px;
+}
+
+.view-video .options{
+	position:absolute;
+	top:0px;
+	right:-50px;
+	width:40px;
+	height:80px;
+}
+
+.view-video .options button{
+	border:0;
+	background:transparent;
+	width:40px;
+	height:40px;
+	color: rgba(255,255,255,0.8);
+    font-size: 32px;
+}
+
+.view-video .options button:hover{
+	color:#fff;
+}
+
+.view-video .options button:hover, .view-video .options button:focus, .view-video .options button:active{
+	outline:none;
+}
+
+button.view-more{
+	border: 0;
+    width: calc(100% - 30px);
+    margin: 20px 15px 60px;
+    height: 60px;
+    font-size: 24px;
+}
+
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
 }

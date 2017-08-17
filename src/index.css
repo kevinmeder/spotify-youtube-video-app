@@ -1,4 +1,12 @@
-body {
-  margin: 0;
-  padding: 0;
+.home-icon{
+	text-align: center;
+	font-size: 60px;
+}
+
+.home-icon.facebook{
+	color: #3B5998;
+}
+
+.home-icon.spotify{
+	color: #31cd64;
 }

@@ -3,20 +3,22 @@ import { Route, Switch } from 'react-router';
 import { Link } from 'react-router-dom';
 
 import Home from './pages/Home';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Dashboard from './pages/Dashboard';
+import Saved from './pages/Saved';
+import Callback from './pages/Callback';
+import Logout from './pages/Logout';
+import NotFound from './pages/NotFound';
 
 import * as firebase from "firebase";
 
 import './App.css';
 
 var config = {
-  apiKey: "<API_KEY>",
-  authDomain: "<PROJECT_ID>.firebaseapp.com",
-  databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
-  storageBucket: "<BUCKET>.appspot.com",
-  messagingSenderId: "<SENDER_ID>",
+  apiKey: "AIzaSyAsUl6Z9O2DBODbu1uNnnnfeocGSHMUQ6Y",
+  authDomain: "youtube-search-4cf4d.firebaseapp.com",
+  databaseURL: "https://youtube-search-4cf4d.firebaseio.com",
+  projectId: "youtube-search-4cf4d",
+  storageBucket: "youtube-search-4cf4d.appspot.com",
+  messagingSenderId: "221179145588"
 };
 firebase.initializeApp(config);
 
@@ -34,57 +36,39 @@ class App extends Component {
       if (user) {
         this.setState({
           loggedIn: true,
-          user: user.email
+          username: user.displayName
         });
-      } else {
-        console.log("Logged Out");
-      }
-    });
-
-    this.logOut = this.logOut.bind(this);
-  }
-
-  logOut(event) {
-    event.preventDefault();
-    firebase.auth().signOut().then(() => {
-      this.setState({
+      }else{
+        this.setState({
           loggedIn: false,
           user: []
-      });
-    }, function(error) {
-      // An error happened.
+        });
+      }
     });
   }
 
   render() {
     return (
       <div className="App">
-        <nav className="navbar navbar-default navbar-fixed-top">
-          <div className="container">
-            <div className="navbar-header">
-              <Link to="/" className="navbar-brand">Logo</Link>
-            </div>
+        <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+          <Link to="/" className="navbar-brand">Spotitubes</Link>
+          { this.state.loggedIn && 
             <div className="collapse navbar-collapse">
-              { this.state.loggedIn && 
-                <ul className="nav navbar-nav navbar-right">
-                  <li><Link to="/dashboard">{this.state.user}</Link></li> 
-                  <li><a onClick={this.logOut}>Log Out</a></li>
-                </ul>
-              }
-              { !this.state.loggedIn && 
-                <ul className="nav navbar-nav navbar-right">
-                  <li><Link to="/login">Login</Link></li>
-                  <li><Link to="/signup">Sign Up</Link></li> 
-                </ul>
-              }
+              <ul className="navbar-nav mr-auto">
+                <li className="nav-item"><Link to="/saved" className="nav-link">Saved Videos</Link></li>
+              </ul>
+              <ul className="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+                <Link to="/logout" className="nav-item nav-link">Log Out</Link>
+              </ul>
             </div>
-          </div>
+          }
         </nav>
         <Switch>
           <Route exact path='/' component={Home}/>
-          <Route path='/login' component={Login}/>
-          <Route path='/signup' component={Signup}/>
-          <Route path='/dashboard' component={Dashboard}/>
+          <Route exact path='/saved' component={Saved}/>
+          <Route exact path='/callback' component={Callback}/>
+          <Route exact path='/logout' component={Logout}/>
+          <Route path="*" component={NotFound}  status={404} />
         </Switch>
       </div>
     );
