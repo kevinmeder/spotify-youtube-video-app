@@ -8,9 +8,13 @@ var bodyParser = require('body-parser');
 
 var SpotifyWebApi = require('spotify-web-api-node');
 
+const SPOTIFY_CLIENT_ID = ''; // Your Spotify Client Token
+const SPOTIFY_CLIENT_SECRET = ''; // Your Spotify Client Secret Token
+
+
 var spotifyApi = new SpotifyWebApi({
-  clientId : '3701baeb580b4d11a09e4201254085b4',
-  clientSecret : '67c36eb1dae64b72b2f4f7dec800be49',
+  clientId : SPOTIFY_CLIENT_ID,
+  clientSecret : SPOTIFY_CLIENT_SECRET,
   redirectUri : 'http://localhost:3000/callback'
 });
 
@@ -63,7 +67,7 @@ app.post('/authorize', function (req, res) {
 	  method: 'post',
 	  url: 'https://accounts.spotify.com/api/token',
 	  headers: {
-	  	'Authorization': "Basic " + btoa( '3701baeb580b4d11a09e4201254085b4' + ':' + '67c36eb1dae64b72b2f4f7dec800be49'  ),
+	  	'Authorization': "Basic " + btoa( SPOTIFY_CLIENT_ID + ':' + SPOTIFY_CLIENT_SECRET  ),
 	  	'Content-Type': 'application/x-www-form-urlencoded'
 	  },
 	  params: {
@@ -91,7 +95,7 @@ app.post('/refresh', function (req, res) {
 	  method: 'post',
 	  url: 'https://accounts.spotify.com/api/token',
 	  headers: {
-	  	'Authorization': "Basic " + btoa( '3701baeb580b4d11a09e4201254085b4' + ':' + '67c36eb1dae64b72b2f4f7dec800be49'  ),
+	  	'Authorization': "Basic " + btoa( SPOTIFY_CLIENT_ID + ':' + SPOTIFY_CLIENT_SECRET  ),
 	  	'Content-Type': 'application/x-www-form-urlencoded'
 	  },
 	  params: {
