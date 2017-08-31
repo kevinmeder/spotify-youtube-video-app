@@ -8,6 +8,8 @@ import Callback from './pages/Callback';
 import Logout from './pages/Logout';
 import NotFound from './pages/NotFound';
 
+import Header from './components/Header';
+
 import * as firebase from "firebase";
 
 import './App.css';
@@ -50,19 +52,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-          <Link to="/" className="navbar-brand">Spotitubes</Link>
-          { this.state.loggedIn && 
-            <div className="collapse navbar-collapse">
-              <ul className="navbar-nav mr-auto">
-                <li className="nav-item"><Link to="/saved" className="nav-link">Saved Videos</Link></li>
-              </ul>
-              <ul className="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-                <Link to="/logout" className="nav-item nav-link">Log Out</Link>
-              </ul>
-            </div>
-          }
-        </nav>
+        <Header loggedIn={this.state.loggedIn} />
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route exact path='/saved' component={Saved}/>

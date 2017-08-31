@@ -102,7 +102,8 @@ class Home extends Component {
 
 	// Save video to saved list
 	saveVideo(youtube) {
-		if(youtube && youtube.length === 4){
+		console.log(youtube);
+		if(youtube.id && youtube.spotify_id){
 			firebase.database().ref('videos/' + this.state.user_id).push({
 				video_id: youtube.id,
 				title: youtube.title,
@@ -110,7 +111,7 @@ class Home extends Component {
 				spotify_id: youtube.spotify_id
 			});
 		}else{
-			console.log("error");
+			console.log("error" + youtube.length);
 		}
 	}
 

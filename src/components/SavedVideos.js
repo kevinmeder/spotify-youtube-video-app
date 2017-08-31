@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 
 class SavedVideos extends Component {
 
-	constructor(props) {
-		super(props);
-
-	}
-
 	render() {
 		return (
 			<div className="saved-videos">
