@@ -8,8 +8,8 @@ var bodyParser = require('body-parser');
 
 var SpotifyWebApi = require('spotify-web-api-node');
 
-const SPOTIFY_CLIENT_ID = '3701baeb580b4d11a09e4201254085b4'; // Your Spotify Client Token
-const SPOTIFY_CLIENT_SECRET = '67c36eb1dae64b72b2f4f7dec800be49'; // Your Spotify Client Secret Token
+const SPOTIFY_CLIENT_ID = ''; // Your Spotify Client Token
+const SPOTIFY_CLIENT_SECRET = ''; // Your Spotify Client Secret Token
 
 
 var spotifyApi = new SpotifyWebApi({

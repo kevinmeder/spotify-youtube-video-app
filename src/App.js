@@ -15,12 +15,11 @@ import * as firebase from "firebase";
 import './App.css';
 
 var config = {
-  apiKey: "AIzaSyAsUl6Z9O2DBODbu1uNnnnfeocGSHMUQ6Y",
-  authDomain: "youtube-search-4cf4d.firebaseapp.com",
-  databaseURL: "https://youtube-search-4cf4d.firebaseio.com",
-  projectId: "youtube-search-4cf4d",
-  storageBucket: "youtube-search-4cf4d.appspot.com",
-  messagingSenderId: "221179145588"
+  apiKey: "<API_KEY>",
+  authDomain: "<PROJECT_ID>.firebaseapp.com",
+  databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
+  storageBucket: "<BUCKET>.appspot.com",
+  messagingSenderId: "<SENDER_ID>",
 };
 firebase.initializeApp(config);
 
